@@ -10,6 +10,7 @@ function Leads() {
   const [newLeadModal, setNewLeadModal] = useState(false);
   const [sucessModal, setSucessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
+  const [leads, setLeads] = useState([]);
 
   const openNewLeadModal = () => {
     setNewLeadModal(true);
@@ -38,24 +39,29 @@ function Leads() {
     setErrorModal(false);
   }
 
+  const handleAddLead = (newLead) => {
+    setLeads(prevLeads => [...prevLeads, newLead]);
+  };
+
   return (
-    <div>
+    <div className='wrap-leads'>
       <img src={logo} alt="logo JusCash" />
       {newLeadModal && (
         <NewLeadModal
           closeModal={closeNewLeadModal}
           openSucessModal={openSucessModal}
           openErrorModal={openErrorModal}
+          addLead={handleAddLead}
         />
       )}
       {!newLeadModal && (
-        <>
+        <div className='wrap-button'>
           <button onClick={openNewLeadModal}> + Novo Lead</button>
-        </>
+        </div>
       )}
       {sucessModal && <SucessModal closeModal={closeSucessModal} />}
       {errorModal && <ErrorModal closeModal={closeErrorModal} />}
-      <LeadsList />
+      <LeadsList leads={leads} />
     </div>
   );
 }

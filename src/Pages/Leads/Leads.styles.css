@@ -16,21 +16,19 @@ button {
   justify-content: center;
 }
 
-.title-list {
-  border-top: solid 1px #989393;
-  border-bottom: solid 1px #989393;
-  padding: 15px;
+.wrap-leads {
+  display: flex;
+  flex-direction: column;
 }
 
-.title-list:first-child {
-  border-left: solid 1px #989393;
-  border-right: solid 1px #989393;
-  border-radius: 5px 0 0 5px;
+.wrap-leads img {
+  width: 50%;
+  align-self: center;
+  padding-bottom: 20px;
 }
 
-.title-list:last-child {
-  border-left: solid 1px #989393;
-  border-right: solid 1px #989393;
-  margin-right: 0;
-  border-radius: 0 5px 5px 0;
+.wrap-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
 }
