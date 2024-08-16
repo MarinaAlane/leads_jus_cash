@@ -16,12 +16,13 @@ function Leads() {
   const openNewLeadModal = () => {
     setNewLeadModal(true);
     setSucessModal(false);
-    setList(false)
+    setList(false);
   };
 
   const closeNewLeadModal = () => {
     setNewLeadModal(false);
     setList(true)
+    setSucessModal(false);
   };
 
   const openSucessModal = () => {
@@ -33,6 +34,7 @@ function Leads() {
   const closeSucessModal = () => {
     setSucessModal(false);
     setList(true)
+    setNewLeadModal(false);
   };
 
   const openErrorModal = () => {
@@ -44,6 +46,7 @@ function Leads() {
   const closeErrorModal = () => {
     setErrorModal(false);
     setList(true)
+    setSucessModal(false);
   }
 
   const handleAddLead = (newLead) => {
