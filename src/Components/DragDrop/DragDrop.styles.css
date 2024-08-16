@@ -1,0 +1,40 @@
+* {
+  background-color: #f0f4f4;
+}
+
+button {
+  background-color: #2d97b7;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.title-list {
+  padding: 15px;
+  cursor: pointer;
+}
+
+.draggable-item {
+  padding: 10px;
+}
+
+.even-lead {
+  background-color: #f0f4f4;
+  border-bottom: solid 1px #727272;
+  border-top: solid 1px #727272;
+  margin: 2px;
+}
+
+.odd-lead {
+  background-color: #fff;
+  border-bottom: solid 1px #727272;
+  border-top: solid 1px #727272;
+}
