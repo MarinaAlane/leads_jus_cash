@@ -32,7 +32,7 @@ function RegisterForm() {
   const handleSubmit = (values) => {
     localStorage.setItem('userFormData', JSON.stringify(values));
     console.log('Dados salvos no localStorage:', values);
-    navigate('/user-leads');
+    navigate('/leads');
   };
 
   const handleLogin = () => {

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import logo from '../../Assets/logo.png';
 
+import './LoginForm.styles.css';
+
 function LoginForm() {
   const initialValues = {
     password: '',

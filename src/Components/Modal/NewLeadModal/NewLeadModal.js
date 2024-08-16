@@ -1,5 +1,7 @@
 import React from 'react';
 import { Formik, ErrorMessage, Form, Field } from 'formik';
+import InputMask from 'react-input-mask';
+
 import NewLeadFormSchema from '../../../Schemas/NewLeadFormSchema';
 import closeIcon from '../../../Assets/close.png';
 import './NewLeadModal.styles.css';
@@ -11,6 +13,14 @@ const NewLeadModal = ({ closeModal, openSucessModal, initialValues = {}, onSave 
     'Honorários Dativos',
     'Crédito do Autor'
   ];
+
+  initialValues = {
+    name: initialValues.name || '',
+    email: initialValues.email || '',
+    phone: initialValues.phone || '',
+    options: initialValues.options || [],
+    id: initialValues.id || ''
+  };
 
   const isEditMode = Boolean(initialValues.id);
 
@@ -39,13 +49,7 @@ const NewLeadModal = ({ closeModal, openSucessModal, initialValues = {}, onSave 
         <h3>Dados do Lead</h3>
 
         <Formik
-          initialValues={{
-            name: initialValues.name || '',
-            email: initialValues.email || '',
-            phone: initialValues.phone || '',
-            options: initialValues.options || [],
-            id: initialValues.id || ''
-          }}
+          initialValues={initialValues}
           validationSchema={NewLeadFormSchema}
           onSubmit={handleSubmit}
         >
@@ -70,13 +74,17 @@ const NewLeadModal = ({ closeModal, openSucessModal, initialValues = {}, onSave 
                   disabled={isEditMode}
                 />
                 <ErrorMessage name="email" component="div" className="error-message" />
-                <Field
-                  className="form-group-modal"
-                  type="text"
-                  name="phone"
-                  placeholder="Telefone*"
-                  disabled={isEditMode}
-                />
+                <Field name="phone">
+                  {({ field }) => (
+                    <InputMask
+                      {...field}
+                      mask="(99) 99999-9999"
+                      className="form-group-modal"
+                      placeholder="Telefone*"
+                      disabled={isEditMode}
+                    />
+                  )}
+                </Field>
                 <ErrorMessage name="phone" component="div" className="error-message" />
                 <h3>Oportunidades</h3>
                 <label className="toppings-list-item">
