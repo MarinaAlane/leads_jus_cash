@@ -11,32 +11,39 @@ function Leads() {
   const [sucessModal, setSucessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
   const [leads, setLeads] = useState([]);
+  const [list, setList] = useState(true)
 
   const openNewLeadModal = () => {
     setNewLeadModal(true);
     setSucessModal(false);
+    setList(false)
   };
 
   const closeNewLeadModal = () => {
     setNewLeadModal(false);
+    setList(true)
   };
 
   const openSucessModal = () => {
     setSucessModal(true);
     setNewLeadModal(false);
+    setList(false)
   };
 
   const closeSucessModal = () => {
     setSucessModal(false);
+    setList(true)
   };
 
   const openErrorModal = () => {
     setNewLeadModal(false);
     setErrorModal(true);
+    setList(false)
   }
 
   const closeErrorModal = () => {
     setErrorModal(false);
+    setList(true)
   }
 
   const handleAddLead = (newLead) => {
@@ -61,7 +68,7 @@ function Leads() {
       )}
       {sucessModal && <SucessModal closeModal={closeSucessModal} />}
       {errorModal && <ErrorModal closeModal={closeErrorModal} />}
-      <LeadsList leads={leads} />
+      {list && <LeadsList leads={leads} />}
     </div>
   );
 }
