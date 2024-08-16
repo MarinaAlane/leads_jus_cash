@@ -1,12 +1,16 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './Pages/Register';
+import Leads from './Pages/Leads/Leads';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Register />
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Register />} />
+        <Route path="/user-details" element={<Leads />} />
+      </Routes>
+    </Router>
   );
 }
 
